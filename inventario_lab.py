@@ -24,14 +24,14 @@ quantidade_reagentes = len(tipos_reagentes)
 inventario = list(zip(reagentes, lotes, purezas))
 
 #print inicial 
-print('=' * 30)
-print('RELATÓRIO DO ESTOQUE DO LABORATÓRIO')
-print('=' * 30)
-print(f'\nHá {quantidade_reagentes} tipos de reagentes diferentes no laboratório.')
-print(f'São eles: {tipos_reagentes}\n')
-print('=' * 30)
-print('LISTA DOS REAGENTES INDIVIDUAIS:')
-print('=' * 30)
+print('=' * 90)
+print('                     RELATÓRIO DO ESTOQUE DO LABORATÓRIO')
+print('=' * 90)
+print(f'\n >Há {quantidade_reagentes} tipos de reagentes diferentes no laboratório.')
+print(f' >São eles: {tipos_reagentes}\n')
+print('=' * 90)
+print('                     LISTA DOS REAGENTES INDIVIDUAIS:')
+print('=' * 90)
 print('\n')
 
 #loop exigido 
@@ -39,11 +39,11 @@ for reagente, lote, pureza in inventario:
     print(f'Frasco do Lote: [{lote}] | Reagente: [{reagente}] | Pureza: [{pureza}]%\n')
 
 #print do loop
-print('=' * 30)
-print('LOTES APROVADOS PARA EXPERIMENTOS SENSÍVEIS (pureza >= 98%)')
-print('=' * 30)
+print('=' * 90)
+print('           LOTES APROVADOS PARA EXPERIMENTOS SENSÍVEIS (pureza >= 98%)')
+print('=' * 90)
 
 lotes_aprovados = [lote for reagente, lote, pureza in inventario if pureza >= 98.0]
 
-print(f'\nForam aprovados {len(lotes_aprovados)} lotes')
-print(f'\nOs códigos aprovados são: {lotes_aprovados} \n')
+print(f'\n >Dos lotes anteriores, {len(lotes_aprovados)} foram aprovados. ')
+print(f'\n >Os códigos aprovados são: {lotes_aprovados} \n')
