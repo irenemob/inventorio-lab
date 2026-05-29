@@ -1,5 +1,4 @@
-# dados do inventario físico 
-# Dados do inventário físico (cada índice representa um frasco individual)
+# Dados do inventário físico
 reagentes = ['Etanol', 'Acetona', 'Etanol', 'Ácido Sulfúrico', 'Benzeno', 'Acetona',
              'Etanol', 'Ácido Sulfúrico', 'Metanol', 'Tolueno', 'Etanol', 'Acetona',
              'Ácido Acético', 'Etanol', 'Benzeno', 'Ácido Sulfúrico', 'Metanol',
@@ -17,3 +16,34 @@ lotes = ['2023-ETA-01', '2023-ACE-01', '2023-ETA-01', '2023-SUL-01', '2023-BEN-0
 purezas = [99.5, 92.0, 99.5, 98.0, 99.9, 98.5, 96.0, 99.0, 99.0, 98.8, 99.5, 92.0,
            99.2, 96.0, 99.9, 98.0, 99.0, 95.0, 99.5, 92.0, 98.8, 99.0, 99.9, 99.5,
            92.0, 99.0, 98.0, 98.5, 95.0, 96.0]
+
+#identificando e contando os tipos de reagentes
+tipos_reagentes = set(reagentes)
+quantidade_reagentes = len(tipos_reagentes)
+
+inventario = list(zip(reagentes, lotes, purezas))
+
+#print inicial 
+print('=' * 30)
+print('RELATÓRIO DO ESTOQUE DO LABORATÓRIO')
+print('=' * 30)
+print(f'\nHá {quantidade_reagentes} tipos de reagentes diferentes no laboratório.')
+print(f'São eles: {tipos_reagentes}\n')
+print('=' * 30)
+print('LISTA DOS REAGENTES INDIVIDUAIS:')
+print('=' * 30)
+print('\n')
+
+#loop exigido 
+for reagente, lote, pureza in inventario:
+    print(f'Frasco do Lote: [{lote}] | Reagente: [{reagente}] | Pureza: [{pureza}]%\n')
+
+#print do loop
+print('=' * 30)
+print('LOTES APROVADOS PARA EXPERIMENTOS SENSÍVEIS (pureza >= 98%)')
+print('=' * 30)
+
+lotes_aprovados = [lote for reagente, lote, pureza in inventario if pureza >= 98.0]
+
+print(f'\nForam aprovados {len(lotes_aprovados)} lotes')
+print(f'\nOs códigos aprovados são: {lotes_aprovados} \n')
